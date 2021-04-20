@@ -5,10 +5,48 @@ spring:
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
-    
+#  datasource:
+##    url: jdbc:mysql://127.0.0.1:3306/article1?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+##    username: root
+##    password: 123456
+##    driver-class-name: com.mysql.cj.jdbc.Driver
+#    primary:
+#      jdbc-url: jdbc:mysql://127.0.0.1:3306/article1?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+#      username: root
+#      password: 123456
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#    secondary:
+#      jdbc-url: jdbc:mysql://127.0.0.1:3306/article2?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+#      username: root
+#      password: 123456
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+
+
 # 应用服务 WEB 访问端口
 server:
   port: 80
 
 
 
+primarydb:
+  uniqueResourceName: primary
+  xaDataSourceClassName: com.mysql.cj.jdbc.MysqlXADataSource
+  xaProperties:
+    url: jdbc:mysql://127.0.0.1:3306/article1?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    user: root
+    password: 123456
+  exclusiveConnectionMode: true
+  minPoolSize: 3
+  maxPoolSize: 10
+  testQuery: select 1 from dual
+secondarydb:
+  uniqueResourceName: secondary
+  xaDataSourceClassName: com.mysql.cj.jdbc.MysqlXADataSource
+  xaProperties:
+    url: jdbc:mysql://127.0.0.1:3306/article2?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    user: root
+    password: 123456
+  exclusiveConnectionMode: true
+  minPoolSize: 3
+  maxPoolSize: 10
+  testQuery: select 1 from dual

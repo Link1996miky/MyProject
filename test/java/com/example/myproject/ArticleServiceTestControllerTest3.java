@@ -46,7 +46,7 @@ public class ArticleServiceTestControllerTest3 {
         ObjectMapper objectMapper = new ObjectMapper();
         Article articleobj = objectMapper.readValue(article, Article.class);
         //打桩
-        when(articleService.savaArticle(articleobj)).thenReturn("ok");
+//        when(articleService.savaArticle(articleobj)).thenReturn("ok");
 
 
         MvcResult result = mockMvc.perform(

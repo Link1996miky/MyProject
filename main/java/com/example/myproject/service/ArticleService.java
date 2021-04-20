@@ -1,8 +1,9 @@
 package com.example.myproject.service;
 
 import com.example.myproject.model.Article;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 public interface ArticleService {
 
-    String savaArticle(Article article);
+    void savaArticle(Article article, JdbcTemplate jdbcTemplate);
 }
