@@ -28,25 +28,3 @@ server:
 
 
 
-primarydb:
-  uniqueResourceName: primary
-  xaDataSourceClassName: com.mysql.cj.jdbc.MysqlXADataSource
-  xaProperties:
-    url: jdbc:mysql://127.0.0.1:3306/article1?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-    user: root
-    password: 123456
-  exclusiveConnectionMode: true
-  minPoolSize: 3
-  maxPoolSize: 10
-  testQuery: select 1 from dual
-secondarydb:
-  uniqueResourceName: secondary
-  xaDataSourceClassName: com.mysql.cj.jdbc.MysqlXADataSource
-  xaProperties:
-    url: jdbc:mysql://127.0.0.1:3306/article2?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-    user: root
-    password: 123456
-  exclusiveConnectionMode: true
-  minPoolSize: 3
-  maxPoolSize: 10
-  testQuery: select 1 from dual

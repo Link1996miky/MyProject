@@ -5,5 +5,5 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public interface ArticleService {
 
-    void savaArticle(Article article, JdbcTemplate jdbcTemplate);
+    void savaArticle(Article article);
 }
